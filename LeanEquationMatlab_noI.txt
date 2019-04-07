@@ -1,0 +1,8 @@
++ h^2*m*phi_ddot*cos(phi)^2
++ h^2*m*phi_ddot*sin(phi)^2
+- g*h*m*sin(phi)
+- (h*m*v^2*tan(delta))/l
+- (b*delta_dot*h*m*v)/(l*cos(delta)^2)
+- (h^2*m*v^2*tan(delta)^2*sin(phi))/(l^2*cos(phi))
+- (b*h*m*v_dot*sin(delta))/(l*cos(delta))
+- (b*h*m*phi_dot*v*sin(delta)*sin(phi))/(l*cos(delta)*cos(phi))
