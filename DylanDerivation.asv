@@ -63,30 +63,26 @@ R = [  0        0           1;
      cos(phi)   -sin(phi)   0];
  
  %calculate moment of inertia in beta frame, expressed in beta frame
-I_Beta = R*I0*(R');
+ I_Beta = R*I0*(R');
  
-Hdot_relGinBeta = I_Beta* omega_dot_BikeinBeta...
+ Hdot_relGinBeta = I_Beta* omega_dot_BikeinBeta...
            + cross(omega_BikeinBeta, I_Beta* omega_BikeinBeta);
  
 %rotate Hdot from Beta to F frame
-% R_fromBetaToF = [cos(psi) -sin(psi) 0;
-%                  sin(psi)  cos(psi) 0;
-%                     0         0     1];
-% Hdot_relGinF = R_fromBetaToF*Hdot_relGinBeta;
+R_fromBetaToF = [cos(psi) -sin(psi
        
-Hdot_GrelCprime = cross(r_GrelC, m*a_G);
+ Hdot_GrelCprime = cross(r_GrelC, m*a_G);
  
-Hdot_relCprime = Hdot_GrelCprime + Hdot_relGinBeta;
+ Hdot_relCprime = Hdot_GrelCprime + Hdot_relGinF;
  
 %%%%%%%%%%%%%%%%%%%%%%        AMB about C'    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 M_relC = cross(r_GrelC,-m*g*k);
 
 %take AMB and dot with lambda
 AMB_eqn = dot(Hdot_relCprime - M_relC, lambda);
-AMB_eqn = expand(AMB_eqn)
-AMB_eqn = AMB_eqn*(-1); %negate everything
+AMB_eqn = expand(AMB_eqn);
 %^there is no I3 term in this, this seems wrong
-eqn_Latex = latex(AMB_eqn);
+eqn_Latex = latex(AMB_eqn)
 
 
 %print matlab lean equation to txt file
